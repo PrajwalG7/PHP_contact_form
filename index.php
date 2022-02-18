@@ -48,7 +48,8 @@
         $email = $_POST["email"];
         $desc = $_POST["desc"];
 
-        //submit to database
+        //submit to database 
+
 
         $servername = "localhost:3307";
         $username = "root";
@@ -56,11 +57,11 @@
         $database = "form_contacts";
         $conn = mysqli_connect($servername, $username, $password, $database);
 
-        //checking if connection is sucessfull or not
+        //checking if connection is successful or not
         if (!$conn) {
             die("Sorry we failed to connect: " . mysqli_connect_error() . "<br>");
         } else {
-            // ! TODO: remember this echo was intended to know whether connection with db is sucessfull or not, don't write echo in production.
+            // ! TODO: remember this echo was intended to know whether connection with db is successful or not, don't write echo in production.
             // echo "Connection was successful with database <br>";
 
             //inserting values
@@ -70,7 +71,7 @@
             // Inserting the record into table of database using mysqli extension
             $result = mysqli_query($conn, $sql);
 
-            //checking if insertion is successfull or not
+            //checking if insertion is successful or not
             if ($result) {
                 echo '<div class=" mt-3 ml-3 mr-3 alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Success!</strong> Entry has been submitted successfully.
@@ -79,7 +80,7 @@
                 </button>
               </div>';
             } else {
-                // ! TODO: Change this echo with faliure alert in production.
+                // ! TODO: Change this echo with failure alert in production.
                 // echo "Error occured while inserting the record into table <br>" . mysqli_error($conn);
                 echo '<div class="mt-3 ml-3 mr-3  alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>Failed! </strong> Some error occured while submitting the entry.
